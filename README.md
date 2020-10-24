@@ -5,4 +5,5 @@ Embed Link Generator is an open source API which lets you generate embed links f
 
 1. ~~Add HTML generator endpoint~~
 1. ~~Add oEmbed generator endpoint~~
-1. Add index.html 
+1. Add index.html
+1. Add automatic tests
