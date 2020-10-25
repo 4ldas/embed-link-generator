@@ -7,12 +7,12 @@ Embed Link Generator is an open source API which lets you generate embed links f
 Returns the HTML which includes metadata according to query parameters along with oEmbed data.
 
 Name        | Type   | length                | Usage
-------------|--------|-----------------------|------
-title       | string | up to 256 characters  |
-description | string | up to 2048 characters |
-site_name   | string | up to 2048 characters |
-image       | url    | up to 2048 characters |
-color       | hex    | exactly 6 characters  |
+------------|--------|-----------------------|-------------------------------
+title       | string | up to 256 characters  | sets og:title in the metadata
+description | string | up to 2048 characters | sets og:description in the metadata
+site_name   | string | up to 2048 characters | sets og:site_name in the metadata
+image       | url    | up to 2048 characters | sets og:image in the metadata
+color       | hex    | exactly 6 characters  | sets og:theme_color in the metadata
 
 ### To do list
 
