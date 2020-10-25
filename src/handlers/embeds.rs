@@ -8,7 +8,7 @@ pub async fn create(params: embeds::Embed) -> Result<impl warp::Reply, warp::Rej
     if let Some(_) = params.provider_name.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.provider_url.as_ref().filter(|v| v.len() >= 2048) { return Err(reject::custom(errors::InvalidLength)) }
 
-    let root_url = "https://127.0.0.1:8080"
+    let root_url = "https://127.0.0.1:8080";
 
     let html = format!(r#"<DOCTYPE html>
 <html>
