@@ -43,4 +43,3 @@ pub async fn handle_rejection(err: Rejection) -> Result<impl Reply, Infallible> 
 
     Ok(warp::reply::with_status(json, code))
 }
-
