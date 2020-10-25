@@ -86,4 +86,3 @@ pub async fn oembed(params: embeds::Oembed) -> Result<impl warp::Reply, warp::Re
 
     Ok(warp::reply::json(&params))
 }
-
