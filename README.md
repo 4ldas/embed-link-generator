@@ -14,6 +14,7 @@ description | string | up to 2048 characters | sets og:description in the metada
 site_name   | string | up to 2048 characters | sets og:site_name in the metadata
 image       | url    | up to 2048 characters | sets og:image in the metadata
 color       | hex    | exactly 6 characters  | sets og:theme_color in the metadata
+##### Also accepts all the query parameters of /oEmbed endpoint and adds link tag to it in the html
 
 ### To do list
 
