@@ -29,4 +29,3 @@ pub struct Oembed {
     pub provider_name: Option<String>,
     pub provider_url: Option<String>
 }
-
