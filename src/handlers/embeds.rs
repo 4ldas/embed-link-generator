@@ -6,8 +6,9 @@ pub async fn create(params: embeds::Embed) -> Result<impl warp::Reply, warp::Rej
     if let Some(_) = params.author_name.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.author_url.as_ref().filter(|v| v.len() >= 2048) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.provider_name.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
-    if let Some(_) = params.provider_url.as_ref().filter(|v| v.len() >= 2048) { return Err(reject::custom(errors::InvalidLength)) };
+    if let Some(_) = params.provider_url.as_ref().filter(|v| v.len() >= 2048) { return Err(reject::custom(errors::InvalidLength)) }
 
+    let root_url = "https://127.0.0.1:8080"
 
     let html = format!(r#"<DOCTYPE html>
 <html>
@@ -64,7 +65,7 @@ pub async fn create(params: embeds::Embed) -> Result<impl warp::Reply, warp::Rej
             }
         } else { String::new() },
 
-        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#, "https://embed.aldas.me", ammonia::clean(&serde_urlencoded::to_string(embeds::Oembed {
+        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#, root_url, ammonia::clean(&serde_urlencoded::to_string(embeds::Oembed {
             etype: params.etype,
             author_name: params.author_name,
             author_url: params.author_url,
