@@ -34,6 +34,6 @@ provider_url | url         | up to 2048 characters | sets url for the resource p
 
 - [x] Add HTML generator endpoint
 - [x] Add oEmbed generator endpoint
-- [ ] Add API documentation
+- [x] Add API documentation
 - [ ] Add index.html
 - [ ] Add automatic tests
