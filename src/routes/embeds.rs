@@ -19,4 +19,3 @@ pub fn embed() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejectio
         .and(warp::query::<models::Embed>())
         .and_then(handlers::create)
 }
-
