@@ -28,12 +28,3 @@ author_name  | string      | up to 256 characters  | sets author/owner name
 author_url   | url         | up to 2048 characters | sets author/owner url
 provider_name| string      | up to 256 characters  | sets name for the resource provider
 provider_url | url         | up to 2048 characters | sets url for the resource provider
-
-
-### To do list
-
-- [x] Add HTML generator endpoint
-- [x] Add oEmbed generator endpoint
-- [x] Add API documentation
-- [ ] Add index.html
-- [ ] Add automatic tests
