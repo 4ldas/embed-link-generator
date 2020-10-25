@@ -21,6 +21,13 @@ color       | hex    | exactly 6 characters  | sets og:theme_color in the metada
 Returns the oEmbed json according to the query parameters.
 
 ##### Query parameters
+Name         | Type        | length                | Usage
+-------------|-------------|-----------------------|-------------------------------
+type         | oEmbed type | up to 256 characters  | sets og:title in the metadata
+author_name  | string      | up to 256 characters  | sets og:description in the metadata
+author_url   | url         | up to 2048 characters | sets og:site_name in the metadata
+provider_name| string      | up to 256 characters  | sets og:image in the metadata
+provider_url | url         | up to 2048 characters | sets og:theme_color in the metadata
 
 
 ### To do list
