@@ -9,8 +9,8 @@ Returns the HTML which includes metadata according to query parameters along wit
 
 ### To do list
 
-1. ~~Add HTML generator endpoint~~
-1. ~~Add oEmbed generator endpoint~~
-1. Add API documentation
-1. Add index.html
-1. Add automatic tests
+- [x] Add HTML generator endpoint
+- [ ] Add oEmbed generator endpoint
+- [ ] Add API documentation
+- [ ] Add index.html
+- [ ] Add automatic tests
