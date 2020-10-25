@@ -1,6 +1,7 @@
 ## Embed Link Generator
 Embed Link Generator is a open source API which lets you generate safe embed links for sites such as Discord.
 
+
 ### API Documentation
 
 #### GET /embed
@@ -15,6 +16,12 @@ site_name   | string | up to 2048 characters | sets og:site_name in the metadata
 image       | url    | up to 2048 characters | sets og:image in the metadata
 color       | hex    | exactly 6 characters  | sets og:theme_color in the metadata
 ##### Also accepts all the query parameters of /oEmbed endpoint and adds link tag to it in the html
+
+#### GET /oEmbed
+Returns the oEmbed json according to the query parameters.
+
+##### Query parameters
+
 
 ### To do list
 
