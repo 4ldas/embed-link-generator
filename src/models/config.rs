@@ -10,4 +10,3 @@ pub struct Server {
     pub ip: std::net::Ipv4Addr,
     pub port: u16
 }
-
