@@ -6,6 +6,7 @@ Embed Link Generator is a open source API which lets you generate safe embed lin
 #### GET /embed
 Returns the HTML which includes metadata according to query parameters along with oEmbed data.
 
+##### Query parameters
 Name        | Type   | length                | Usage
 ------------|--------|-----------------------|-------------------------------
 title       | string | up to 256 characters  | sets og:title in the metadata
