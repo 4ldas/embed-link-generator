@@ -9,4 +9,3 @@ pub struct Error {
 #[derive(Debug)]
 pub struct InvalidLength;
 impl warp::reject::Reject for InvalidLength {}
-
