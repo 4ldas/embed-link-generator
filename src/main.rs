@@ -12,7 +12,6 @@ async fn main() {
             .unwrap_or("config.toml".to_string()))
         .expect("failed to open the toml file"))
         .expect("failed to parse the toml file");
-
     let config = Arc::new(config);
 
     let routes = routes::embeds::embeds(config.clone());

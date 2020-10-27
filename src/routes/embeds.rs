@@ -1,12 +1,13 @@
-use crate::handlers::{errors::handle_rejection, embeds as handlers};
-use crate::models::embeds as models;
-use crate::models::config::Config;
 use warp::Filter;
-
 use std::sync::Arc;
+use crate::{
+    handlers::{errors::handle_rejection, embeds as handlers},
+    models::{config::Config, embeds as models}
+};
+
 
 pub fn embeds(config: Arc<Config>) -> impl Filter<Extract=impl warp::Reply, Error=std::convert::Infallible> + Clone {
-    oembed().or(embed(config)).recover(handle_rejection)
+    embed(config).or(oembed()).recover(handle_rejection)
 }
 
 pub fn oembed() -> impl Filter<Extract=impl warp::Reply, Error=warp::Rejection> + Clone {

@@ -1,7 +1,6 @@
 use warp::reject;
-use crate::models::{embeds, errors};
-use crate::models::config::Config;
 use std::sync::Arc;
+use crate::models::{config::Config, embeds, errors};
 
 pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl warp::Reply, warp::Rejection> {
     if let Some(_) = params.etype.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
@@ -10,8 +9,6 @@ pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl w
     if let Some(_) = params.provider_name.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.provider_url.as_ref().filter(|v| v.len() >= 2048) { return Err(reject::custom(errors::InvalidLength)) }
 
-    let root_url = format!("https://{}:{}", config.server.ip, config.server.port);
-    println!("root_url: {}", root_url); // TODO: you can delete this.
 
     let html = format!(r#"<DOCTYPE html>
 <html>
@@ -68,7 +65,7 @@ pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl w
             }
         } else { String::new() },
 
-        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#, root_url, ammonia::clean(&serde_urlencoded::to_string(embeds::Oembed {
+        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#, config.server.root_url, ammonia::clean(&serde_urlencoded::to_string(embeds::Oembed {
             etype: params.etype,
             author_name: params.author_name,
             author_url: params.author_url,
