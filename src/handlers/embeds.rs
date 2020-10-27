@@ -1,14 +1,17 @@
 use warp::reject;
 use crate::models::{embeds, errors};
+use crate::models::config::Config;
+use std::sync::Arc;
 
-pub async fn create(params: embeds::Embed) -> Result<impl warp::Reply, warp::Rejection> {
+pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl warp::Reply, warp::Rejection> {
     if let Some(_) = params.etype.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.author_name.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.author_url.as_ref().filter(|v| v.len() >= 2048) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.provider_name.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.provider_url.as_ref().filter(|v| v.len() >= 2048) { return Err(reject::custom(errors::InvalidLength)) }
 
-    let root_url = "https://127.0.0.1:8080";
+    let root_url = format!("https://{}:{}", config.server.ip, config.server.port);
+    println!("root_url: {}", root_url); // TODO: you can delete this.
 
     let html = format!(r#"<DOCTYPE html>
 <html>
