@@ -17,6 +17,6 @@ async fn oembed() {
             .path(&format!("/oembed?{}", serde_urlencoded::to_string(&data).unwrap()))
             .reply(&api)
             .await.status(),
-            StatusCode::OK
+        StatusCode::OK
     );
 }
