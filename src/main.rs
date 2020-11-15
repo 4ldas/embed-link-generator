@@ -1,6 +1,7 @@
 mod models;
 mod routes;
 mod handlers;
+mod tests;
 
 use std::sync::Arc;
 
