@@ -1,3 +1,4 @@
+# This is an example config, replace it if you wish.
 [server]
 ip = "127.0.0.1"
 port = 8080
