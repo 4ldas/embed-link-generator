@@ -17,15 +17,3 @@ pub struct Embed {
     pub provider_name: Option<String>,
     pub provider_url: Option<String>,
 }
-
-
-#[serde_with::skip_serializing_none]
-#[derive(Serialize, Deserialize)]
-pub struct Oembed {
-    #[serde(rename(serialize = "type", deserialize = "type"))]
-    pub etype: Option<String>,
-    pub author_name: Option<String>,
-    pub author_url: Option<String>,
-    pub provider_name: Option<String>,
-    pub provider_url: Option<String>
-}

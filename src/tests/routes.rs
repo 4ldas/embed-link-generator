@@ -3,7 +3,12 @@ use warp::{http::StatusCode, test::request};
 
 #[tokio::test]
 async fn oembed() {
-   let data = crate::models::embeds::Oembed {
+    let data = crate::models::embeds::Embed {
+        title: None,
+        description: None,
+        site_name: None,
+        color: None,
+        image: None,
         etype: None,
         author_name: Some(String::from("author")),
         author_url: Some(String::from("https://example.org")),

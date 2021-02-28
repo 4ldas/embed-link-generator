@@ -13,7 +13,7 @@ pub fn embeds(config: Arc<Config>) -> impl Filter<Extract=impl warp::Reply, Erro
 pub fn oembed() -> impl Filter<Extract=impl warp::Reply, Error=warp::Rejection> + Clone {
     warp::path!("oembed")
         .and(warp::get())
-        .and(warp::query::<models::Oembed>())
+        .and(warp::query::<models::Embed>())
         .and_then(handlers::oembed)
 }
 

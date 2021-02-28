@@ -65,7 +65,12 @@ pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl w
             }
         } else { String::new() },
 
-        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#, config.server.root_url, ammonia::clean(&serde_urlencoded::to_string(embeds::Oembed {
+        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#, config.server.root_url, ammonia::clean(&serde_urlencoded::to_string(embeds::Embed {
+            title: None,
+            description: None,
+            site_name: None,
+            image: None,
+            color: None,
             etype: params.etype,
             author_name: params.author_name,
             author_url: params.author_url,
@@ -78,7 +83,7 @@ pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl w
 }
 
 
-pub async fn oembed(params: embeds::Oembed) -> Result<impl warp::Reply, warp::Rejection> {
+pub async fn oembed(params: embeds::Embed) -> Result<impl warp::Reply, warp::Rejection> {
     if let Some(_) = params.etype.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.author_name.as_ref().filter(|v| v.len() >= 256) { return Err(reject::custom(errors::InvalidLength)) };
     if let Some(_) = params.author_url.as_ref().filter(|v| v.len() >= 2048) { return Err(reject::custom(errors::InvalidLength)) };
