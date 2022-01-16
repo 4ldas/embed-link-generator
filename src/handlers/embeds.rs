@@ -65,9 +65,7 @@ pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl w
             }
         } else { String::new() },
 
-        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#,
-        config.server.root_url,
-        ammonia::clean(&serde_urlencoded::to_string(embeds::Embed {
+        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#, config.server.root_url, ammonia::clean(&serde_urlencoded::to_string(embeds::Embed {
             title: None,
             description: None,
             site_name: None,
