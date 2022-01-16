@@ -22,7 +22,7 @@ pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl w
 
         if let Some(t) = &params.title {
             if t.len() < 256 {
-            format!(r#"<meta property="og:title" content="{}">
+                format!(r#"<meta property="og:title" content="{}">
         "#, ammonia::clean(t))
             } else {
                 return Err(reject::custom(errors::InvalidLength));
@@ -65,7 +65,9 @@ pub async fn create(params: embeds::Embed, config: Arc<Config>) -> Result<impl w
             }
         } else { String::new() },
 
-        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#, config.server.root_url, ammonia::clean(&serde_urlencoded::to_string(embeds::Embed {
+        format!(r#"<link type="application/json+oembed" href="{}/oembed?{}">"#,
+        config.server.root_url,
+        ammonia::clean(&serde_urlencoded::to_string(embeds::Embed {
             title: None,
             description: None,
             site_name: None,
