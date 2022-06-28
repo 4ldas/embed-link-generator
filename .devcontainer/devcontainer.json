@@ -9,9 +9,12 @@
 	],
 	"dockerFile": "Dockerfile",
 	"settings": {
+		"forwardPorts": [
+			8080
+		],
 		"lldb.executable": "/usr/bin/lldb",
 		"editor.formatOnSave": true,
-		"terminal.integrated.shell.linux": "/usr/bin/zsh",
+		"terminal.integrated.profiles.linux": "/usr/bin/zsh",
 		"files.watcherExclude": {
 			"**/target/**": true
 		},
