@@ -33,7 +33,7 @@ async fn main() {
         .serve(Router::new()
                 .route("/embed", get(embed))
                 .route("/oembed", get(oembed))
-                .with_state(AppState { root_url: root_url }
+                .with_state(AppState { root_url }
             )
             .layer(TraceLayer::new_for_http())
             .into_make_service()
