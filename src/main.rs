@@ -31,10 +31,9 @@ async fn main() {
     tracing::info!("Starting on `{}` with root url of `{}`", &root, &root_url);
     axum::Server::bind(&root.parse().unwrap())
         .serve(Router::new()
-                .route("/embed", get(embed))
-                .route("/oembed", get(oembed))
-                .with_state(AppState { root_url }
-            )
+            .route("/embed", get(embed))
+            .route("/oembed", get(oembed))
+            .with_state(AppState { root_url })
             .layer(TraceLayer::new_for_http())
             .into_make_service()
         )
