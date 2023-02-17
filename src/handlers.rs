@@ -17,9 +17,6 @@ pub async fn embed( State(state): State<AppState>, Query(params): Query<Embed> )
     <head>
         {}{}{}{}{}{}
     </head>
-    <body>
-        <script>location="/"</script>
-    </body>
 </html>"#,
 
         if let Some(t) = &params.title {
