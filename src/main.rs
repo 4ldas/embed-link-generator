@@ -29,7 +29,7 @@ async fn main() {
     let (root, root_url) = (var("ROOT").unwrap(), var("ROOT_URL").unwrap());
 
 
-    tracing::info!("Starting on {} (root url: {})", &root, &root_url);
+    tracing::info!("starting on {} (root url: {})", &root, &root_url);
     axum::Server::bind(&root.parse().unwrap())
         .serve(Router::new()
             .route("/embed", get(embed))
